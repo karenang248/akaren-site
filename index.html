@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Karen Ang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root{
+      --bg:#faf9f6;
+      --card:#ffffff;
+      --text:#2f2f2f;
+      --muted:#6b6b6b;
+      --line:#e8e6e1;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:32px 20px 80px;
+    }
+
+    header{
+      background:linear-gradient(135deg,#f6efe6,#fdfbf7);
+      border-radius:18px;
+      padding:34px 28px;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      margin-bottom:18px;
+    }
+
+    header h1{
+      margin:0;
+      font-size:38px;
+      letter-spacing:-0.3px;
+    }
+
+    header p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-style:italic;
+    }
+
+    nav{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      font-size:14px;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--text);
+      background:#fff;
+    }
+    nav a:hover{ background:#f1efe9; }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    @media(min-width:860px){
+      .grid{ grid-template-columns:1fr 1fr; }
+      .span2{ grid-column:1 / -1; }
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:22px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    h2{
+      margin:0 0 10px;
+      font-size:20px;
+      letter-spacing:-0.2px;
+    }
+
+    .muted{ color:var(--muted); font-size:14px; }
+
+    /* Travel Year Tabs */
+    .year-tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .year-btn{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:14px;
+      cursor:pointer;
+    }
+    .year-btn:hover{ background:#f1efe9; }
+    .year-btn.active{
+      background:#2f2f2f;
+      color:#fff;
+      border-color:#2f2f2f;
+    }
+
+    /* Gallery */
+    .gallery{
+      margin-top:14px;
+      display:none;
+    }
+    .gallery.active{ display:block; }
+
+    .photo-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    @media(min-width:860px){
+      .photo-grid{ grid-template-columns:1fr 1fr 1fr; }
+    }
+
+    figure{
+      margin:0;
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:#fbfaf7;
+    }
+
+    img{
+      width:100%;
+      height:210px;
+      object-fit:cover;
+      display:block;
+    }
+
+    figcaption{
+      padding:10px 12px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:46px;
+      text-align:center;
+      font-size:13px;
+      color:var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <h1>Karen Ang</h1>
+      <p>A personal space to reflect, learn, and share.</p>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#learning">Learning</a>
+        <a href="#journal">Journal</a>
+        <a href="#travel">Travel</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+
+      <section id="about" class="card span2">
+        <h2>🌱 About Me</h2>
+        <p>
+          A lifelong learner with a background in supply chain, operations, and digital transformation.
+          This site is a simple space to pause, reflect, and document my learning journey.
+        </p>
+        <p class="muted">
+          The goal is not perfection — just steady progress, captured in words and moments.
+        </p>
+      </section>
+
+      <section id="learning" class="card">
+        <h2>📘 Learning & Reflections</h2>
+        <p>
+          Notes from courses, travel learning, and personal projects — focused on clarity, decision making,
+          and building confidence in digital ways of working.
+        </p>
+      </section>
+
+      <section id="journal" class="card">
+        <h2>✍️ Journal</h2>
+        <p class="muted">Short entries. Newest thoughts first.</p>
+        <p>
+          Built my first website today. A tiny file extension mistake cost hours — but the learning stayed.
+          Progress is real, even when messy.
+        </p>
+      </section>
+
+      <section id="travel" class="card span2">
+        <h2>📷 Travel Gallery (by Year)</h2>
+        <p class="muted">
+          Add photos by placing them into folders like <b>photos/2026/</b>, then re-upload the <b>akaren-site</b> folder to Netlify.
+        </p>
+
+        <div class="year-tabs" role="tablist" aria-label="Travel by year">
+          <button class="year-btn active" data-year="y2026" type="button">2026</button>
+          <button class="year-btn" data-year="y2025" type="button">2025</button>
+          <button class="year-btn" data-year="y2024" type="button">2024</button>
+        </div>
+
+        <!-- 2026 -->
+        <div id="y2026" class="gallery active">
+          <div class="photo-grid">
+            <figure>
+              <img src="photos/2026/travel-01.jpg" alt="2026 travel photo">
+              <figcaption>2026 — A moment from the road</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- 2025 (empty placeholder) -->
+        <div id="y2025" class="gallery">
+          <p class="muted" style="margin-top:14px;">
+            No photos yet. When ready, add images into <b>photos/2025/</b>.
+          </p>
+        </div>
+
+        <!-- 2024 (empty placeholder) -->
+        <div id="y2024" class="gallery">
+          <p class="muted" style="margin-top:14px;">
+            No photos yet. When ready, add images into <b>photos/2024/</b>.
+          </p>
+        </div>
+
+      </section>
+
+      <section id="contact" class="card span2">
+        <h2>📬 Contact</h2>
+        <p>This site will grow over time. For now, it remains a quiet personal space.</p>
+        <p class="muted">(LinkedIn or email can be added later.)</p>
+      </section>
+
+    </main>
+
+    <footer>
+      © <span id="year"></span> Karen Ang · Built gently, one step at a time
+    </footer>
+
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Travel year switching
+    const buttons = document.querySelectorAll(".year-btn");
+    const galleries = document.querySelectorAll(".gallery");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const target = btn.getAttribute("data-year");
+        galleries.forEach(g => g.classList.remove("active"));
+        document.getElementById(target).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
