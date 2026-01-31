@@ -1,6 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karen Ang</title>
+
+  <!-- Optional: if you already have a style.css, keep this line.
+       If you don't have style.css, you can remove this line safely. -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Simple built-in styling so it looks decent even without style.css */
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 24px; }
+    header { padding: 12px 0 18px; border-bottom: 1px solid #ddd; }
+    nav { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
+    nav a { text-decoration: none; padding: 6px 10px; border: 1px solid #ddd; border-radius: 8px; color: #333; }
+    nav a:hover { background: #f3f3f3; }
+
+    section { padding: 22px 0; border-bottom: 1px solid #f0f0f0; }
+    h1 { margin: 0; font-size: 32px; }
+    h2 { margin: 0 0 10px; font-size: 22px; }
+    .muted { color: #666; margin-top: 6px; }
+
+    .entry { padding: 14px 16px; border: 1px solid #eee; border-radius: 12px; margin: 12px 0; background: #fafafa; }
+    .entry h3 { margin: 0 0 8px; font-size: 16px; }
+    footer { padding: 18px 0 10px; color: #777; font-size: 14px; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <h1>Karen Ang</h1>
+      <p class="muted">A personal space to reflect, learn, and share.</p>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#learning">Learning</a>
+        <a href="#journal">Journal</a>
+        <a href="#travel">Travel</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Welcome to my space. I’m Karen — I use this site to reflect, capture learning, and share moments from life and travel.
+      </p>
+    </section>
+
+    <!-- LEARNING -->
+    <section id="learning">
+      <h2>Learning</h2>
+      <p>
+        Notes, course reflections, and small wins. (You can update this section anytime.)
+      </p>
+    </section>
+
+    <!-- JOURNAL -->
+    <section id="journal">
+      <h2>Journal</h2>
+
+      <!-- NEW ENTRIES: Paste the newest entry ABOVE older entries -->
+      <article class="entry">
+        <h3>31 Jan 2026</h3>
+        <p>
+          Today I fixed my GitHub Pages journal structure.
+          It finally makes sense how static sites work.
+        </p>
+      </article>
+
+      <!-- Example template for your next entry (copy this block, fill it in, and paste above) -->
+      <!--
+      <article class="entry">
+        <h3>1 Feb 2026</h3>
+        <p>
+          Write your journal entry here...
+        </p>
+      </article>
+      -->
+    </section>
+
+    <!-- TRAVEL -->
+    <section id="travel">
+      <h2>Travel</h2>
+      <p>
+        Trip notes, photos, and highlights.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        You can add your email or social links here later.
+      </p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Karen Ang
+    </footer>
+
+  </div>
+
+  <script>
+    // Auto-updates the footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <title>Karen Ang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -289,3 +404,4 @@
 
 </body>
 </html>
+
