@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karen Ang</title>
 
-  <!-- Optional: if you already have a style.css, keep this line.
-       If you don't have style.css, you can remove this line safely. -->
+  <!-- If you have a style.css in the same folder, keep this.
+       If not, you can remove it safely. -->
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* Simple built-in styling so it looks decent even without style.css */
     body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
     .wrap { max-width: 900px; margin: 0 auto; padding: 24px; }
     header { padding: 12px 0 18px; border-bottom: 1px solid #ddd; }
@@ -49,9 +48,11 @@
     <section id="about">
       <h2>About</h2>
       <p>
-        Welcome to my space. I’m Karen Ang and this is my website — I use this site to reflect, capture learning, and share moments from life and travel. 
-        It is not as expected as i wanted it to be a direct entry into website and then published! a little disappointed.
-        today is 1 feb, and i had a long day in church and dinner at the place Bel recommended.
+        Welcome to my space. I’m Karen Ang and this is my website — I use this site to reflect, capture learning, and share moments from life and travel.
+        It’s not as I expected (I wanted direct entry like a blog), so I felt a little disappointed.
+      </p>
+      <p>
+        Today is 1 Feb 2026. I had a long day in church and dinner at the place Bel recommended.
       </p>
     </section>
 
@@ -59,27 +60,36 @@
     <section id="learning">
       <h2>Learning</h2>
       <p>
-        Notes, course reflections, and small wins. I created this using guidance from Chapgpt, and this is simple but it took a digital immigrant 
-        a while to get this out, but learning is fun and i am hooked.      </p>
+        Notes, course reflections, and small wins. I created this using guidance from ChatGPT.
+        It’s simple but it took a digital immigrant a while to get this out — but learning is fun and I’m hooked.
+      </p>
     </section>
 
     <!-- JOURNAL -->
     <section id="journal">
       <h2>Journal</h2>
 
-      <!-- NEW ENTRIES: Paste the newest entry ABOVE older entries -->
+      <!-- NEWEST ENTRIES GO ON TOP -->
+
       <article class="entry">
-        <h3>31 Jan 2026</h3>
+        <h3>1 Feb 2026</h3>
         <p>
-          Today I fixed my GitHub Pages journal structure.
-          It finally makes sense how static sites work.
+          Long day in church, then dinner at the place Bel recommended. I’m still getting used to GitHub Pages —
+          it’s not “type and publish” like a blog, but I’m learning.
         </p>
       </article>
 
-      <!-- Example template for your next entry (copy this block, fill it in, and paste above) -->
+      <article class="entry">
+        <h3>31 Jan 2026</h3>
+        <p>
+          Today I fixed my GitHub Pages journal structure. It finally makes sense how static sites work.
+        </p>
+      </article>
+
+      <!-- Template for your next entry (keep this for copying) -->
       <!--
       <article class="entry">
-        <h3>1 Feb 2026</h3>
+        <h3>DATE HERE</h3>
         <p>
           Write your journal entry here...
         </p>
@@ -90,9 +100,7 @@
     <!-- TRAVEL -->
     <section id="travel">
       <h2>Travel</h2>
-      <p>
-        Trip notes, photos, and highlights.
-      </p>
+      <p>Trip notes, photos, and highlights.</p>
     </section>
 
     <!-- CONTACT -->
@@ -110,14 +118,7 @@
   </div>
 
   <script>
-    // Auto-updates the footer year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
-
-
-
-
-
