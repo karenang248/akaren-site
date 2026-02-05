@@ -2,134 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karen Ang — Journal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karen Ang — Personal Journal</title>
 
   <style>
-    :root{
-      --bg:#0b1220;
-      --card:rgba(255,255,255,.08);
-      --border:rgba(255,255,255,.14);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
-      --shadow:0 16px 40px rgba(0,0,0,.28);
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #faf8f5;
+      color: #2b2b2b;
+      line-height: 1.7;
     }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      color:var(--text);
-      line-height:1.6;
-      background:
-        radial-gradient(1000px 700px at 20% 10%, rgba(120,140,255,.18), transparent 55%),
-        radial-gradient(900px 600px at 80% 20%, rgba(255,170,120,.14), transparent 55%),
-        var(--bg);
-      min-height:100vh;
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
     }
 
-    .wrap{
-      max-width:960px;
-      margin:0 auto;
-      padding:26px 18px 60px;
+    header {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
     }
 
-    header{
-      position:sticky;
-      top:12px;
-      z-index:10;
-      background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.06));
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:20px 18px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(10px);
+    h1 {
+      margin: 0;
+      font-size: 34px;
     }
 
-    h1{margin:0;font-size:28px}
-    .subtitle{margin:6px 0 0;color:var(--muted);font-size:14px}
-
-    nav{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    nav a{
-      text-decoration:none;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.06);
-      font-size:14px;
-      color:var(--text);
+    .subtitle {
+      margin-top: 6px;
+      color: #666;
+      font-size: 16px;
     }
 
-    section{
-      margin-top:18px;
-      padding:22px 18px;
-      border:1px solid var(--border);
-      border-radius:18px;
-      background:rgba(255,255,255,.06);
-      box-shadow:var(--shadow);
-    }
-    section h2{margin:0 0 10px;font-size:18px}
-    .hint{margin:0 0 14px;color:var(--muted);font-size:14px}
-
-    .journal-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-    }
-    @media(min-width:860px){
-      .journal-grid{grid-template-columns:1fr 1fr}
+    nav {
+      margin-top: 16px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .entry{
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:14px;
-      background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.05));
+    nav a {
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      border-bottom: 1px solid transparent;
     }
 
-    .entry-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:8px;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .date{
-      font-size:13px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.06);
-    }
-    .tag{font-size:12px;color:var(--muted)}
-
-    .entry p{
-      margin:0;
-      font-size:14.5px;
-      white-space:pre-wrap;
+    nav a:hover {
+      border-bottom: 1px solid #444;
     }
 
-    footer{
-      margin-top:20px;
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
+    section {
+      margin-bottom: 50px;
     }
 
-    .edit-callout{
-      margin-bottom:14px;
-      padding:12px;
-      border-radius:14px;
-      border:1px dashed rgba(255,255,255,.30);
-      background:rgba(255,255,255,.05);
-      font-size:13px;
-      color:var(--muted);
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .hint {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* Journal diary style */
+    .journal-entry {
+      padding: 22px 0;
+      border-bottom: 1px solid #e2e2e2;
+    }
+
+    .journal-entry:last-child {
+      border-bottom: none;
+    }
+
+    .journal-date {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .journal-entry p {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -152,99 +120,122 @@
 
     <section id="about">
       <h2>About</h2>
-      <p class="hint">Short and personal.</p>
       <p>
-        This is my space to document daily reflections, learning moments,
-        and life experiences — one day at a time.
+        Welcome to my space. I’m Karen Ang and this is my website — I use this site
+        to reflect, capture learning, and share moments from life and travel.
+        Especially now I am doing a Digital Marketing & E-commerce course with BCG,
+        I want to learn more about the use of AI and the various tools and platforms.
       </p>
     </section>
 
     <section id="learning">
       <h2>Learning</h2>
-      <p class="hint">Notes from courses, tools, and experiments.</p>
       <p>
-        I use this section to capture small insights and lessons along the way.
+        Notes, course reflections, and small wins. I created this using guidance
+        from ChatGPT. It’s simple, but it took a digital immigrant a while to get
+        this out — learning is fun and I’m hooked.
       </p>
     </section>
 
     <section id="journal">
       <h2>Journal</h2>
-      <p class="hint">Newest entries on top.</p>
+      <p class="hint">Newest entries on top. One day, one reflection.</p>
 
-      <div class="edit-callout">
-        ✍️ <strong>Daily update:</strong>  
-        Copy one <code>&lt;article class="entry"&gt;</code> block below,
-        paste it at the TOP, change date + text, then commit.
+      <!-- ===== DAILY JOURNAL ENTRIES (EDIT ONLY HERE) ===== -->
+
+      <div class="journal-entry">
+        <div class="journal-date">6 Feb 2026</div>
+        <p>
+I created 6 Feb so I can use it to update.
+        </p>
       </div>
 
-      <div class="journal-grid">
+      <div class="journal-entry">
+        <div class="journal-date">5 Feb 2026</div>
+        <p>
+I created 5 Feb so I can use it to update. The Yoga incident kind of triggered me,
+and I thought Vicky was a nice person, but seems not. Anyway stay calm and chill.
 
-        <!-- ===== 6 FEB 2026 ===== -->
-        <article class="entry">
-          <div class="entry-head">
-            <p class="date">6 Feb 2026</p>
-            <p class="tag">#journal</p>
-          </div>
-          <p>
-Continued refining my personal website.
-Still learning, but feeling more confident navigating GitHub
-and understanding how changes flow from file to live site.
-          </p>
-        </article>
+The $30k gold still haunts me, but I guess I just remain calm and count on Him.
+I hope the arrangement for CNY Day 1 and BBQ works out well, and I won’t be stressed
+about the preparation.
 
-        <!-- ===== 5 FEB 2026 ===== -->
-        <article class="entry">
-          <div class="entry-head">
-            <p class="date">5 Feb 2026</p>
-            <p class="tag">#journal</p>
-          </div>
-          <p>
-Managed to update my journal consistently.
-The process felt clunky at first, but repetition helps.
-Progress may be slow, but it is real.
-          </p>
-        </article>
-
-        <!-- ===== 31 JAN 2026 ===== -->
-        <article class="entry">
-          <div class="entry-head">
-            <p class="date">31 Jan 2026</p>
-            <p class="tag">#journal</p>
-          </div>
-          <p>
-Started building my own personal website.
-Made mistakes, learned a lot, and realised how powerful
-small technical skills can be.
-          </p>
-        </article>
-
+It’s raining cats and dogs and I am in my study facing the window. The contractor
+probably cannot proceed with work, but thankfully the aircon service of $220 was
+done yesterday.
+        </p>
       </div>
+
+      <div class="journal-entry">
+        <div class="journal-date">4 Feb 2026</div>
+        <p>
+I created 4 Feb so I can use it to update.
+        </p>
+      </div>
+
+      <div class="journal-entry">
+        <div class="journal-date">3 Feb 2026</div>
+        <p>
+I created 3 Feb since it is past 12 midnight, and I hope this shows up as I did
+this code myself. It’s still unfamiliar, but I hope ChatGPT can assist me.
+
+Now I am doing my BCG work but too tired to do e-learning. This week will be super
+busy and I hope to have the energy and focus to manage it.
+
+BCG class today is on Lazada and I had the part to update PDP and also
+reviews/ratings. Finally got it done and tomorrow will have to do it again during
+live class.
+
+The aircon service guy will only come tomorrow, plus the Indian contractor to do
+waterproofing, and I hope all goes smoothly without me having to do much supervision.
+        </p>
+      </div>
+
+      <div class="journal-entry">
+        <div class="journal-date">2 Feb 2026</div>
+        <p>
+Today I continued learning how to maintain my GitHub Pages journal.
+It’s still unfamiliar, but things are slowly becoming clearer — thanks to ChatGPT!
+        </p>
+      </div>
+
+      <div class="journal-entry">
+        <div class="journal-date">1 Feb 2026</div>
+        <p>
+Long day in church, then dinner at the place Bel recommended.
+I’m still getting used to GitHub Pages — it’s not “type and publish” like a blog,
+but I’m learning.
+        </p>
+      </div>
+
+      <div class="journal-entry">
+        <div class="journal-date">31 Jan 2026</div>
+        <p>
+Today I fixed my GitHub Pages journal structure.
+It finally makes sense how static sites work.
+        </p>
+      </div>
+
+      <!-- ===== END JOURNAL ===== -->
     </section>
 
     <section id="travel">
       <h2>Travel</h2>
-      <p class="hint">Trips, notes, and memories.</p>
-      <p>
-        This section will capture travel reflections and photos over time.
-      </p>
+      <p>Trip notes, photos, and highlights.</p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p class="hint">Optional.</p>
       <p>
-        Details can be added later.
+        My email is <strong>Karenang248@gmail.com</strong><br/>
+        Mobile: <strong>9666 8681</strong>
       </p>
     </section>
 
     <footer>
-      © <span id="year"></span> Karen Ang
+      © 2026 Karen Ang
     </footer>
 
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
