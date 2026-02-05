@@ -3,83 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karen Ang</title>
+  <title>Karen Ang — Journal</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      background: #ffffff;
+    :root{
+      --bg:#0b1220;
+      --card:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.68);
+      --shadow:0 16px 40px rgba(0,0,0,.28);
     }
 
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 24px;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      line-height:1.6;
+      background:
+        radial-gradient(1000px 700px at 20% 10%, rgba(120,140,255,.18), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(255,170,120,.14), transparent 55%),
+        var(--bg);
+      min-height:100vh;
     }
 
-    header {
-      padding: 12px 0 18px;
-      border-bottom: 1px solid #ddd;
+    .wrap{
+      max-width:960px;
+      margin:0 auto;
+      padding:26px 18px 60px;
     }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
+    header{
+      position:sticky;
+      top:12px;
+      z-index:10;
+      background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.06));
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:20px 18px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
     }
 
-    nav a {
-      text-decoration: none;
-      padding: 6px 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      color: #333;
+    h1{margin:0;font-size:28px}
+    .subtitle{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    nav{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    nav a{
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      font-size:14px;
+      color:var(--text);
     }
 
-    nav a:hover {
-      background: #f3f3f3;
+    section{
+      margin-top:18px;
+      padding:22px 18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(255,255,255,.06);
+      box-shadow:var(--shadow);
+    }
+    section h2{margin:0 0 10px;font-size:18px}
+    .hint{margin:0 0 14px;color:var(--muted);font-size:14px}
+
+    .journal-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    @media(min-width:860px){
+      .journal-grid{grid-template-columns:1fr 1fr}
     }
 
-    section {
-      padding: 22px 0;
-      border-bottom: 1px solid #f0f0f0;
+    .entry{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.05));
     }
 
-    h1 {
-      margin: 0;
-      font-size: 32px;
+    .entry-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:8px;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .date{
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+    }
+    .tag{font-size:12px;color:var(--muted)}
+
+    .entry p{
+      margin:0;
+      font-size:14.5px;
+      white-space:pre-wrap;
     }
 
-    h2 {
-      margin: 0 0 10px;
-      font-size: 22px;
+    footer{
+      margin-top:20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
     }
 
-    .muted {
-      color: #666;
-      margin-top: 6px;
-    }
-
-    .entry {
-      padding: 14px 16px;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      margin: 12px 0;
-      background: #fafafa;
-    }
-
-    .entry h3 {
-      margin: 0 0 8px;
-      font-size: 16px;
-    }
-
-    footer {
-      padding: 18px 0 10px;
-      color: #777;
-      font-size: 14px;
+    .edit-callout{
+      margin-bottom:14px;
+      padding:12px;
+      border-radius:14px;
+      border:1px dashed rgba(255,255,255,.30);
+      background:rgba(255,255,255,.05);
+      font-size:13px;
+      color:var(--muted);
     }
   </style>
 </head>
@@ -89,7 +139,7 @@
 
     <header>
       <h1>Karen Ang</h1>
-      <p class="muted">A personal space to reflect, learn, and share.</p>
+      <p class="subtitle">A personal space to reflect, learn, and share.</p>
 
       <nav>
         <a href="#about">About</a>
@@ -100,112 +150,90 @@
       </nav>
     </header>
 
-    <!-- ABOUT -->
     <section id="about">
       <h2>About</h2>
+      <p class="hint">Short and personal.</p>
       <p>
-        Welcome to my space. I’m Karen Ang and this is my website — I use this site to reflect,
-        capture learning, and share moments from life and travel.
-        Especially now I am doing a Digital Marketing & e-com course with BCG, I want to learn
-        more about use of AI and the various tools, platforms too!
-      </p>
-      <p>
-        
+        This is my space to document daily reflections, learning moments,
+        and life experiences — one day at a time.
       </p>
     </section>
 
-    <!-- LEARNING -->
     <section id="learning">
       <h2>Learning</h2>
+      <p class="hint">Notes from courses, tools, and experiments.</p>
       <p>
-        Notes, course reflections, and small wins. I created this using guidance from ChatGPT.
-        It’s simple, but it took a digital immigrant a while to get this out —
-        learning is fun and I’m hooked.
+        I use this section to capture small insights and lessons along the way.
       </p>
     </section>
 
-    <!-- JOURNAL -->
     <section id="journal">
       <h2>Journal</h2>
+      <p class="hint">Newest entries on top.</p>
 
-      <!-- ✍️ NEWEST ENTRIES GO ON TOP (PASTE BELOW THIS LINE) -->
-<article class="entry">
-        <h3>6 Feb 2026</h3>
-        <p>
-          I created 6 feb so i can use it to update.
-         </p>
-      </article>
-      
-<article class="entry">
-        <h3>5 Feb 2026
-        <p>
-          I created 5 feb so i can use it to update. The Yoga incident kinda of trigger me, and I thot Vicky was a nice person,
-          but seems not.  Anyway stay calm and chill.  The $30k gold still haunt me, but guess I just remain calm and count on Him.
-          I hope the arrangement for CNY day1, and BBQ works out well, and I wont be stressed about the preparation.  It's raining
-          cats and dogs and I am in my study facing the window.  The contractor probably cannot proceed to do work, but thankfully 
-          the air con service of $220 was done yesterday.
-        </p>
-</article>
-      
-<article class="entry">
-        <h3>4 Feb 2026</h3>
-        <p>
-          I created 4 feb so i canuse it to update.
-         </p>
-      </article>
-      
- <article class="entry">
-        <h3>3 Feb 2026</h3>
-        <p>
-          I created 3 feb since it is past 12mid night, and i hope this show up as i did this code myself.
-          It’s still unfamiliar, but i hope chapgpt can assist me. Now I am doing my BCG but too tired to do e-learning, 
-          this week will be super busy and I hope to have the energy and focus to manage it.
-          BCG class today is on Lazada and i have the part to update PDP and also reviews/ratings, and finally got it done
-          and tomorrow will have to do it again during live class.  The aircon service guy will only come tomorrow, plus the
-          indian contractor to do water proofing, and I hope all go smoothly without me having to do much supervision.
-        </p>
-      </article>
-      
-      <article class="entry">
-        <h3>2 Feb 2026</h3>
-        <p>
-          Today I continued learning how to maintain my GitHub Pages journal.
-          It’s still unfamiliar, but things are slowly becoming clearer. thanks to Chapgpt!
-        </p>
-      </article>
+      <div class="edit-callout">
+        ✍️ <strong>Daily update:</strong>  
+        Copy one <code>&lt;article class="entry"&gt;</code> block below,
+        paste it at the TOP, change date + text, then commit.
+      </div>
 
-      <article class="entry">
-        <h3>1 Feb 2026</h3>
-        <p>
-          Long day in church, then dinner at the place Bel recommended.
-          I’m still getting used to GitHub Pages — it’s not “type and publish”
-          like a blog, but I’m learning.
-        </p>
-      </article>
+      <div class="journal-grid">
 
-      <article class="entry">
-        <h3>31 Jan 2026</h3>
-        <p>
-          Today I fixed my GitHub Pages journal structure.
-          It finally makes sense how static sites work.
-        </p>
-      </article>
+        <!-- ===== 6 FEB 2026 ===== -->
+        <article class="entry">
+          <div class="entry-head">
+            <p class="date">6 Feb 2026</p>
+            <p class="tag">#journal</p>
+          </div>
+          <p>
+Continued refining my personal website.
+Still learning, but feeling more confident navigating GitHub
+and understanding how changes flow from file to live site.
+          </p>
+        </article>
 
+        <!-- ===== 5 FEB 2026 ===== -->
+        <article class="entry">
+          <div class="entry-head">
+            <p class="date">5 Feb 2026</p>
+            <p class="tag">#journal</p>
+          </div>
+          <p>
+Managed to update my journal consistently.
+The process felt clunky at first, but repetition helps.
+Progress may be slow, but it is real.
+          </p>
+        </article>
+
+        <!-- ===== 31 JAN 2026 ===== -->
+        <article class="entry">
+          <div class="entry-head">
+            <p class="date">31 Jan 2026</p>
+            <p class="tag">#journal</p>
+          </div>
+          <p>
+Started building my own personal website.
+Made mistakes, learned a lot, and realised how powerful
+small technical skills can be.
+          </p>
+        </article>
+
+      </div>
     </section>
 
-    <!-- TRAVEL -->
     <section id="travel">
       <h2>Travel</h2>
+      <p class="hint">Trips, notes, and memories.</p>
       <p>
-        Trip notes, photos, and highlights.
+        This section will capture travel reflections and photos over time.
       </p>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
+      <p class="hint">Optional.</p>
       <p>
-        My email is Karenang248@gmail.com and mobile is 96668681.
+        Details can be added later.
       </p>
     </section>
 
@@ -220,14 +248,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
