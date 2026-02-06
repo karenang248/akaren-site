@@ -4,361 +4,383 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Karen Ang — Journal</title>
-
   <style>
     :root{
-      --paper: #fbf6ee;
-      --ink: #1f1f1f;
-      --muted: #5e5e5e;
-      --line: #e7dccb;
-
-      --card: rgba(255,255,255,0.78);
-      --card-strong: rgba(255,255,255,0.92);
-      --border: rgba(160,120,70,0.20);
-      --shadow: 0 18px 40px rgba(38, 25, 10, 0.12);
-
-      --accent: #8a5a2b;
-      --accent-soft: rgba(138,90,43,0.10);
+      --bg:#0b0f19;
+      --card:#111827;
+      --card2:#0f172a;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#60a5fa;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:980px;
     }
-
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-
+    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-serif, Georgia, "Times New Roman", serif;
-      color: var(--ink);
-      line-height: 1.7;
-      background:
-        radial-gradient(1200px 700px at 18% 5%, rgba(210,160,90,0.14), transparent 55%),
-        radial-gradient(900px 600px at 80% 18%, rgba(120,180,160,0.10), transparent 55%),
-        var(--paper);
-      min-height: 100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 15% 10%, rgba(96,165,250,.15), transparent 55%),
+                  radial-gradient(1200px 800px at 80% 20%, rgba(167,139,250,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
     }
-
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 18px 64px;
-    }
-
-    /* Header */
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
     header{
-      background: linear-gradient(180deg, var(--card-strong), var(--card));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 20px 18px;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 12px;
-      z-index: 20;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      padding:40px 18px 10px;
     }
-
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 18px 70px;
+    }
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px 22px;
+    }
     h1{
-      margin: 0;
-      font-size: 34px;
-      letter-spacing: 0.2px;
+      margin:0 0 6px 0;
+      font-size:34px;
+      letter-spacing:.2px;
     }
-
     .subtitle{
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 15px;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--muted);
+      margin:0 0 14px 0;
     }
-
     nav{
       display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .pill{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-size:14px;
+    }
+    .pill:hover{
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
     }
 
-    nav a{
-      text-decoration: none;
-      color: var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      font-size: 14px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.55);
-      transition: transform .12s ease, background .12s ease;
+    section{margin-top:26px}
+    .section-card{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 18px;
     }
-    nav a:hover{
-      background: rgba(255,255,255,0.85);
-      transform: translateY(-1px);
+    h2{
+      margin:0 0 10px 0;
+      font-size:22px;
     }
-
-    /* Sections as cards */
-    section{
-      margin-top: 18px;
-      background: linear-gradient(180deg, var(--card-strong), var(--card));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 22px 18px;
-      box-shadow: var(--shadow);
+    .muted{color:var(--muted)}
+    .tip{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(96,165,250,.08);
+      border:1px solid rgba(96,165,250,.18);
+      color: var(--text);
+      font-size:14px;
     }
 
-    section h2{
-      margin: 0 0 10px;
-      font-size: 20px;
-    }
-
-    .hint{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 14px;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-    }
-
-    /* Journal cards grid */
+    /* Journal grid */
     .journal-grid{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top:14px;
     }
-    @media (min-width: 860px){
-      .journal-grid{
-        grid-template-columns: 1fr 1fr;
-      }
+    @media (max-width: 760px){
+      .journal-grid{grid-template-columns: 1fr;}
     }
-
-    .entry{
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px 14px 12px;
-      background: rgba(255,255,255,0.86);
+    article.entry{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:14px 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
     }
-
-    .entry-head{
-      display:flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
+    .entry h3{
+      margin:0 0 4px 0;
+      font-size:16px;
     }
-
-    .date{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      font-size: 13px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--accent-soft);
-      color: #3b2a17;
-    }
-
     .tag{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      font-size: 12px;
-      color: var(--muted);
+      display:inline-block;
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      margin-bottom:10px;
     }
-
     .entry p{
-      margin: 0;
-      font-size: 15px;
+      margin:0;
+      color: var(--text);
       white-space: pre-wrap;
     }
 
-    .edit-callout{
-      margin: 12px 0 14px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px dashed rgba(138,90,43,0.35);
-      background: rgba(255,255,255,0.60);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      font-size: 13px;
-      color: var(--muted);
+    /* Investment layout */
+    .invest-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:14px;
+      margin-top:12px;
     }
-
-    code.inline{
-      padding: 1px 6px;
-      border-radius: 8px;
-      border: 1px solid rgba(138,90,43,0.25);
-      background: rgba(138,90,43,0.08);
-      color: #3b2a17;
+    @media (max-width: 900px){
+      .invest-grid{grid-template-columns: 1fr;}
     }
-
+    .statbox{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:14px;
+    }
+    .statbox h3{margin:0 0 8px 0; font-size:16px}
+    .kpi{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .kpi .item{
+      background: rgba(15,23,42,.55);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 10px;
+    }
+    .kpi .label{font-size:12px; color:var(--muted)}
+    .kpi .value{font-size:18px; margin-top:3px}
+    .small{font-size:13px; color:var(--muted)}
     footer{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:13px;
       text-align:center;
-      color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      font-size: 13px;
-      margin-top: 18px;
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-
-    <header>
+  <header class="container">
+    <div class="hero">
       <h1>Karen Ang</h1>
       <p class="subtitle">A personal space to reflect, learn, and share.</p>
+
       <nav>
-        <a href="#about">About</a>
-        <a href="#learning">Learning</a>
-        <a href="#journal">Journal</a>
-        <a href="#travel">Travel</a>
-        <a href="#contact">Contact</a>
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#learning">Learning</a>
+        <a class="pill" href="#investment">Investment</a>
+        <a class="pill" href="#journal">Journal</a>
+        <a class="pill" href="#travel">Travel</a>
+        <a class="pill" href="#contact">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <section id="about">
+  <main class="container">
+    <!-- ABOUT -->
+    <section id="about" class="section-card">
       <h2>About</h2>
-      <p>
-        Welcome to my space. I’m Karen Ang and this is my website — I use this site to reflect,
-        capture learning, and share moments from life and travel. Especially now I am doing a
-        Digital Marketing &amp; e-com course with BCG, I want to learn more about use of AI and
-        the various tools and platforms too!
+      <p class="muted">
+        Welcome to my space. I’m Karen Ang and this is my website — I use this site to reflect, capture learning,
+        and share moments from life and travel. Especially now I am doing a Digital Marketing & e-com course with BCG,
+        I want to learn more about use of AI and the various tools and platforms too!
       </p>
     </section>
 
-    <section id="learning">
+    <!-- LEARNING -->
+    <section id="learning" class="section-card">
       <h2>Learning</h2>
-      <p>
+      <p class="muted">
         Notes, course reflections, and small wins. I created this using guidance from ChatGPT.
-        It’s simple, but it took a digital immigrant a while to get this out — learning is fun
-        and I’m hooked.
+        It’s simple, but it took a digital immigrant a while to get this out — learning is fun and I’m hooked.
       </p>
     </section>
 
-    <section id="journal">
-      <h2>Journal</h2>
-      <p class="hint">Newest entries first. Each day is one card.</p>
+    <!-- INVESTMENT -->
+    <section id="investment" class="section-card">
+      <h2>Investment Tracker</h2>
+      <p class="muted">
+        A quick dashboard for my gold / gold-miner tracking. This page is static (GitHub Pages),
+        so I update the numbers manually, and use the chart for live market movement.
+      </p>
 
-      <div class="edit-callout">
-        ✅ <strong>Daily update:</strong> only edit inside the journal grid below.
-        Copy one <code class="inline">&lt;article class="entry"&gt;</code> block, paste it ABOVE the latest entry,
+      <div class="tip">
+        ✅ Baseline locked: <b>29 Jan 2026 = $30,000</b> (reference entry point)
+        <br/>Tip: update the “Current value” and “Paper P/L” boxes whenever you want (daily/weekly).
+      </div>
+
+      <div class="invest-grid">
+        <!-- Interactive chart -->
+        <div class="statbox">
+          <h3>Interactive Chart (Gold Miners / Gold)</h3>
+          <p class="small">
+            Use the timeframe buttons on the chart (1D/5D/1M/YTD). If you prefer miners, focus on <b>GDX</b>.
+            If you prefer gold itself, switch symbol to <b>GLD</b> or <b>XAUUSD</b> (instructions below).
+          </p>
+
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container" style="height:460px;">
+            <div id="tv_chart"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <script type="text/javascript">
+              new TradingView.widget(
+                {
+                  "autosize": true,
+                  "symbol": "AMEX:GDX",
+                  "interval": "D",
+                  "timezone": "Asia/Singapore",
+                  "theme": "dark",
+                  "style": "1",
+                  "locale": "en",
+                  "toolbar_bg": "#0b0f19",
+                  "enable_publishing": false,
+                  "allow_symbol_change": true,
+                  "hide_top_toolbar": false,
+                  "save_image": false,
+                  "container_id": "tv_chart"
+                }
+              );
+            </script>
+          </div>
+          <!-- TradingView Widget END -->
+
+          <div class="small">
+            Want Gold instead? Click the symbol and search:
+            <b>GLD</b> (SPDR Gold Shares) or <b>XAUUSD</b> (Gold Spot).
+          </div>
+        </div>
+
+        <!-- Stats panel -->
+        <div class="statbox">
+          <h3>My Position (Manual Update)</h3>
+          <div class="kpi">
+            <div class="item">
+              <div class="label">Baseline</div>
+              <div class="value">$30,000</div>
+              <div class="small">29 Jan 2026</div>
+            </div>
+            <div class="item">
+              <div class="label">Last Updated</div>
+              <div class="value">7 Feb 2026</div>
+              <div class="small">edit this date</div>
+            </div>
+            <div class="item">
+              <div class="label">Current Value</div>
+              <div class="value">$25,200</div>
+              <div class="small">edit this number</div>
+            </div>
+            <div class="item">
+              <div class="label">Paper P/L</div>
+              <div class="value">-$4,800 (-16%)</div>
+              <div class="small">vs baseline</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="label muted" style="font-size:12px; margin-bottom:6px;">Notes (optional)</div>
+            <div class="small">
+              Example: “Post-peak pullback; watching for stabilisation. No action yet.”
+              <br/>You can edit this anytime.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNAL -->
+    <section id="journal" class="section-card">
+      <h2>Journal</h2>
+      <p class="muted">Newest entries first. Each day is one card.</p>
+
+      <div class="tip">
+        ✅ Daily update: only edit inside the journal grid below. Copy one
+        <code>&lt;article class="entry"&gt;</code> block, paste it ABOVE the latest entry,
         change date + text, then commit.
       </div>
 
-      <!-- ===========================
-           ✅ JOURNAL ENTRIES START
-           Only edit inside this <div class="journal-grid">.
-                 =========================== -->
       <div class="journal-grid">
-<article class="entry">
-  <div class="entry-head">
-    <p class="date">7 Feb 2026</p>
-    <p class="tag">#journal</p>
-  </div>
-  <p>
-Write your 7 Feb journal here.
-  </p>
-</article>
-  
+        <!-- Paste new entries ABOVE this one -->
+
         <article class="entry">
-          <div class="entry-head">
-            <p class="date">6 Feb 2026</p>
-            <p class="tag">#journal</p>
-          </div>
-          <p>
-I created 6 feb so i can use it to update.
-          </p>
+          <h3>7 Feb 2026</h3>
+          <span class="tag">#journal</span>
+          <p>Write your 7 Feb journal here.</p>
         </article>
 
         <article class="entry">
-          <div class="entry-head">
-            <p class="date">5 Feb 2026</p>
-            <p class="tag">#reflection</p>
-          </div>
-          <p>
-I created 5 feb so i can use it to update. The Yoga incident kinda of trigger me, and I thot Vicky was a nice person, but seems not. Anyway stay calm and chill.
-
-The $30k gold still haunt me, but guess I just remain calm and count on Him. I hope the arrangement for CNY day1, and BBQ works out well, and I wont be stressed about the preparation. 
-It's raining cats and dogs and I am in my study facing the window. The contractor probably cannot proceed to do work, but thankfully the air con service of $220 was done yesterday. 
-The proposal for change of plan and CNY Day1 columbarium visit to Day2 is giving me emotional stress, and all because of one person. I will go calm and compose to get to the objective I want.
-            
-          </p>
+          <h3>6 Feb 2026</h3>
+          <span class="tag">#journal</span>
+          <p>I created 6 feb so i can use it to update.</p>
         </article>
 
         <article class="entry">
-          <div class="entry-head">
-            <p class="date">4 Feb 2026</p>
-            <p class="tag">#journal</p>
-          </div>
-          <p>
-I created 4 feb so i canuse it to update.
-          </p>
+          <h3>5 Feb 2026</h3>
+          <span class="tag">#reflection</span>
+          <p>I created 5 feb so i can use it to update. The Yoga incident kinda of trigger me, and I thot Vicky was a nice person, but seems not. Anyway stay calm and chill. The $30k gold still haunt me, but guess I just remain calm and count on Him. I hope the arrangement for CNY day1, and BBQ works out well, and I wont be stressed about the preparation. It's raining cats and dogs and I am in my study facing the window.
+The contractor probably cannot proceed to do work, but thankfully the air con service of $220 was done yesterday. The proposal for change of plan and CNY Day1 columbarium visit to Day2 is giving me emotional stress, and all because of one person. I will go calm and compose to get to the objective I want.</p>
         </article>
 
         <article class="entry">
-          <div class="entry-head">
-            <p class="date">3 Feb 2026</p>
-            <p class="tag">#life</p>
-          </div>
-          <p>
-I created 3 feb since it is past 12mid night, and i hope this show up as i did this code myself. It’s still unfamiliar, but i hope chapgpt can assist me. Now I am doing my BCG but too tired to do e-learning, this week will be super busy and I hope to have the energy and focus to manage it. BCG class today is on Lazada and i have the part to update PDP and also reviews/ratings, and finally got it done and tomorrow will have to do it again during live class. The aircon service guy will only come tomorrow, plus the indian contractor to do water proofing, and I hope all go smoothly without me having to do much supervision.
-          </p>
+          <h3>4 Feb 2026</h3>
+          <span class="tag">#journal</span>
+          <p>I created 4 feb so i canuse it to update.</p>
         </article>
 
         <article class="entry">
-          <div class="entry-head">
-            <p class="date">2 Feb 2026</p>
-            <p class="tag">#learning</p>
-          </div>
-          <p>
-Today I continued learning how to maintain my GitHub Pages journal. It’s still unfamiliar, but things are slowly becoming clearer. thanks to Chapgpt!
-          </p>
+          <h3>3 Feb 2026</h3>
+          <span class="tag">#life</span>
+          <p>I created 3 feb since it is past 12mid night, and i hope this show up as i did this code myself. It’s still unfamiliar, but i hope chapgpt can assist me. Now I am doing my BCG but too tired to do e-learning, this week will be super busy and I hope to have the energy and focus to manage it. BCG class today is on Lazada and i have the part to update PDP and also reviews/ratings, and finally got it done and tomorrow will have to do it again during live class.
+The aircon service guy will only come tomorrow, plus the indian contractor to do water proofing, and I hope all go smoothly without me having to do much supervision.</p>
         </article>
 
         <article class="entry">
-          <div class="entry-head">
-            <p class="date">1 Feb 2026</p>
-            <p class="tag">#family</p>
-          </div>
-          <p>
-Long day in church, then dinner at the place Bel recommended. I’m still getting used to GitHub Pages — it’s not “type and publish” like a blog, but I’m learning.
-          </p>
+          <h3>2 Feb 2026</h3>
+          <span class="tag">#learning</span>
+          <p>Today I continued learning how to maintain my GitHub Pages journal. It’s still unfamiliar, but things are slowly becoming clearer. thanks to Chapgpt!</p>
         </article>
 
         <article class="entry">
-          <div class="entry-head">
-            <p class="date">31 Jan 2026</p>
-            <p class="tag">#setup</p>
-          </div>
-          <p>
-Today I fixed my GitHub Pages journal structure. It finally makes sense how static sites work.
-          </p>
+          <h3>1 Feb 2026</h3>
+          <span class="tag">#family</span>
+          <p>Long day in church, then dinner at the place Bel recommended. I’m still getting used to GitHub Pages — it’s not “type and publish” like a blog, but I’m learning.</p>
         </article>
 
+        <article class="entry">
+          <h3>31 Jan 2026</h3>
+          <span class="tag">#setup</span>
+          <p>Today I fixed my GitHub Pages journal structure. It finally makes sense how static sites work.</p>
+        </article>
       </div>
-      <!-- ===========================
-           ✅ JOURNAL ENTRIES END
-           =========================== -->
     </section>
 
-    <section id="travel">
+    <!-- TRAVEL -->
+    <section id="travel" class="section-card">
       <h2>Travel</h2>
-      <p>Trip notes, photos, and highlights.</p>
+      <p class="muted">Trip notes, photos, and highlights.</p>
     </section>
 
-    <section id="contact">
+    <!-- CONTACT -->
+    <section id="contact" class="section-card">
       <h2>Contact</h2>
-      <p>
-        My email is <strong>Karenang248@gmail.com</strong> and mobile is <strong>96668681</strong>.
-      </p>
+      <p class="muted">My email is Karenang248@gmail.com and mobile is 96668681.</p>
     </section>
 
-    <footer>
-      © <span id="year"></span> Karen Ang
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <footer>© Karen Ang</footer>
+  </main>
 </body>
 </html>
-
-
-
 
